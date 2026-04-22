@@ -1,82 +1,89 @@
-
+<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>1714 – Portti</title>
+
+<!-- Käsinkirjoitusfontti -->
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: url('https://i.postimg.cc/wjw3pmPk/file-00000000ef8871f48c3d26e8733a3413.png') center/cover no-repeat fixed;
+    background: url('tausta.jpg') center/cover no-repeat fixed;
     color: #e8d8b0;
-}
-
-/* tumma overlay */
-.overlay {
-    background: rgba(0,0,0,0.55);
-    min-height: 100vh;
-    position: relative;
     text-align: center;
-    padding-top: 80px;
 }
 
-/* otsikko */
+/* tumma sumu */
+.overlay {
+    background: rgba(0,0,0,0.7);
+    min-height: 100vh;
+    padding: 40px 20px;
+    backdrop-filter: blur(2px);
+}
+
 h1 {
     font-size: 42px;
     letter-spacing: 2px;
-    margin-bottom: 10px;
 }
 
-p {
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-/* 🔑 näkymätön klikattava alue avaimen kohdalle */
-.key-hitbox {
-    position: absolute;
-    bottom: 120px; /* säädä tarvittaessa */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
-    height: 180px;
+/* AVAIN */
+.key {
+    margin-top: 60px;
+    width: 160px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255,200,100,0.3));
 }
 
-/* hover-efekti */
-.key-hitbox:hover {
-    box-shadow: 0 0 40px rgba(255,200,100,0.5);
-    border-radius: 50%;
+.key:hover {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 25px rgba(255,220,120,0.8));
 }
 
-/* 📜 paperi */
+/* PAPERI */
 #paper {
     display: none;
-    margin: 40px auto;
-    padding: 30px;
+    margin: 50px auto;
+    padding: 35px;
     width: 85%;
-    max-width: 600px;
-    background: url('https://i.postimg.cc/8zQ1wW3G/paper.png') center/cover no-repeat, #f4e3b2;
-    color: black;
+    max-width: 650px;
+    background: url('https://postimg.cc/8jYZQCMh') center/cover no-repeat, #f4e3b2;
+    color: #2b1a10;
     border-radius: 12px;
-    animation: fadeIn 1.2s ease;
+
+    font-family: 'Special Elite', cursive;
+
+    box-shadow: 0 0 40px rgba(255, 200, 100, 0.4);
+
+    animation: openPaper 1s ease;
+    transform-origin: top;
 }
 
-/* symbolit */
 .symbols {
-    font-size: 26px;
-    line-height: 1.8;
-    margin-top: 15px;
+    font-size: 30px;
+    margin-top: 20px;
+    line-height: 1.9;
 }
 
-/* animaatio */
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
+/* ANIMAATIO */
+@keyframes openPaper {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.1) rotateX(-30deg);
+    }
+    60% {
+        transform: scaleY(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
+
 </style>
 </head>
 
@@ -84,62 +91,60 @@ p {
 
 <div class="overlay">
 
-<h1>Olet löytänyt piilotetun sivun</h1>
+<h1>Olet löytänyt portin</h1>
 
-<p>Jos pääsit tänne asti… olet lähempänä kuin uskot.</p>
+<p><i>Mutta kaikki portit eivät johda oikeaan paikkaan...</i></p>
 
-<p>
-Mustaparta ei luottanut karttoihin.<br>
-Hän piilotti totuuden merkkeihin.
+<p>Klikkaa avainta avataksesi salaisuuden</p>
+
+<img src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0"
+     class="key"
+     onclick="openLock()">
+
+<div id="paper">
+
+<h2>MERKIT OVAT NUMEROITA</h2>
+
+<div class="symbols">
+🧭 = 3<br>
+🗝️ = 2<br>
+⚙️ = 8<br>
+🌊 = 5<br>
+🌙 = 9<br>
+💧 = 1<br>
+🗼 = 6<br>
+⚡ = 0<br>
+🔥 = 7<br>
+⭐ = 4
+</div>
+
+<p style="margin-top:20px;">
+Mutta muista…<br>
+Vain oikea järjestys näyttää tien.
 </p>
 
-<p><i>Klikkaa avainta avataksesi portin</i></p>
-
-<!-- 🔑 klikattava alue -->
-<div class="key-hitbox" onclick="openLock()"></div>
-
-<!-- 📜 PAPERI -->
-<div id="paper">
-    <h2>MERKIT OVAT NUMEROITA</h2>
-
-    <div class="symbols">
-        🧭 = 3<br>
-        🗝️ = 2<br>
-        ⚙️ = 8<br>
-        🌊 = 5<br>
-        🌙 = 9<br>
-        💧 = 1<br>
-        🗼 = 6<br>
-        ⚡ = 0<br>
-        🔥 = 7<br>
-        ⭐ = 4
-    </div>
-
-    <p style="margin-top:20px;">
-        Mutta muista…<br>
-        Numerot yksin eivät johda mihinkään.<br>
-        Vain oikea järjestys näyttää tien.
-    </p>
 </div>
 
 </div>
 
-<!-- 🔊 ÄÄNET -->
-<audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b3a68.mp3?filename=unlock-2-22669.mp3"></audio>
-<audio id="oceanSound" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c0b5c7c2b.mp3?filename=ocean-waves-112906.mp3"></audio>
+<audio id="clickSound">
+<source src="click.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="oceanSound" loop>
+<source src="meri.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 function openLock() {
-
     document.getElementById("paper").style.display = "block";
 
-    // 🔊 klikkausääni
-    document.getElementById("clickSound").play();
-
-    // 🌊 meri päälle
+    let click = document.getElementById("clickSound");
     let ocean = document.getElementById("oceanSound");
+
+    click.play().catch(()=>{});
     ocean.volume = 0.3;
-    ocean.play();
+    ocean.play().catch(()=>{});
 }
 </script>
 
