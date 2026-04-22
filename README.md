@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
@@ -43,16 +43,18 @@
     }
 
     #paper {
-    display: none;
-    margin: 40px auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 600px;
-    background: url('paper.png') center/cover no-repeat, #f4e3b2;
-    color: black;
-    border-radius: 10px;
-    animation: fadeIn 1.5s ease;
-
+      display: none;
+      margin: 40px auto;
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      background: url('paper.png') center/cover no-repeat, #f4e3b2;
+      color: black;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 220, 120, 0.4),
+                  0 0 60px rgba(255, 200, 80, 0.2);
+      animation: paperOpen 0.8s ease, glow 2s ease;
+      transform-origin: top center;
     }
 
     .symbols {
@@ -62,14 +64,30 @@
       letter-spacing: 4px;
     }
 
-    @keyframes fadeIn {
-      from {
+    @keyframes paperOpen {
+      0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: scaleY(0.2) rotateX(-20deg);
       }
-      to {
+      60% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scaleY(1.05) rotateX(0deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 0 rgba(255,200,80,0);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(255,200,80,0.5);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255,200,80,0.2);
       }
     }
   </style>
@@ -88,24 +106,29 @@
 
     <p><i>Klikkaa avainta avataksesi portin</i></p>
 
-    <img src="<img width="2048" height="2048" alt="17768901026148489059918636625299" src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0" />
- width="120" class="key" onclick="openLock()" alt="Avain">
+    <img
+      src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0"
+      width="120"
+      class="key"
+      onclick="openLock()"
+      alt="Avain"
+    >
 
     <div id="paper">
       <h2>MERKIT OVAT NUMEROITA</h2>
 
       <div class="symbols">
-  🧭 = 3<br>
-  🗝️ = 2<br>
-  ⚙️ = 8<br>
-  🌊 = 5<br>
-  🌙 = 9<br>
-  💧 = 1<br>
-  🗼 = 6<br>
-  ⚡ = 0<br>
-  🔥 = 7<br>
-  ⭐ = 4
-</div>
+        🧭 = 3<br>
+        🗝️ = 2<br>
+        ⚙️ = 8<br>
+        🌊 = 5<br>
+        🌙 = 9<br>
+        💧 = 1<br>
+        🗼 = 6<br>
+        ⚡ = 0<br>
+        🔥 = 7<br>
+        ⭐ = 4
+      </div>
 
       <p style="margin-top: 20px;">
         Mutta muista…<br>
@@ -115,18 +138,30 @@
     </div>
   </div>
 
+  <audio id="clickSound">
+    <source src="click.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="oceanSound" loop>
+    <source src="meri.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-function openLock() {
-    // Näytä paperi
-    document.getElementById("paper").style.display = "block";
+    function openLock() {
+      document.getElementById("paper").style.display = "block";
 
-    // 🔊 klikkausääni
-    document.getElementById("clickSound").play();
+      const clickSound = document.getElementById("clickSound");
+      const oceanSound = document.getElementById("oceanSound");
 
-    // 🌊 meren ääni päälle
-    document.getElementById("oceanSound").volume = 0.3;
-    document.getElementById("oceanSound").play();
-}
-</script>
+      if (clickSound) {
+        clickSound.play().catch(() => {});
+      }
+
+      if (oceanSound) {
+        oceanSound.volume = 0.3;
+        oceanSound.play().catch(() => {});
+      }
+    }
+  </script>
 </body>
 </html>
