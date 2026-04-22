@@ -88,7 +88,8 @@
 
     <p><i>Klikkaa avainta avataksesi portin</i></p>
 
-    <img src="key.png" width="120" class="key" onclick="openLock()" alt="Avain">
+    <img src="<img width="2048" height="2048" alt="17768901026148489059918636625299" src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0" />
+ width="120" class="key" onclick="openLock()" alt="Avain">
 
     <div id="paper">
       <h2>MERKIT OVAT NUMEROITA</h2>
