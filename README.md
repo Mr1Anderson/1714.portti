@@ -1,167 +1,152 @@
-<!DOCTYPE html>
+
 <html lang="fi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1714 – Portti</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1714 – Portti</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: url('tausta.jpg') center/cover no-repeat fixed;
-      color: #e8d8b0;
-      text-align: center;
-    }
+<!-- Käsinkirjoitusfontti -->
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.65);
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: url('tausta.jpg') center/cover no-repeat fixed;
+    color: #e8d8b0;
+    text-align: center;
+}
 
-    h1 {
-      font-size: 40px;
-      letter-spacing: 2px;
-      margin-top: 0;
-    }
+/* tumma sumu */
+.overlay {
+    background: rgba(0,0,0,0.7);
+    min-height: 100vh;
+    padding: 40px 20px;
+    backdrop-filter: blur(2px);
+}
 
-    p {
-      font-size: 18px;
-      opacity: 0.95;
-      line-height: 1.6;
-    }
+h1 {
+    font-size: 42px;
+    letter-spacing: 2px;
+}
 
-    .key {
-      margin-top: 40px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
+/* AVAIN */
+.key {
+    margin-top: 60px;
+    width: 160px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255,200,100,0.3));
+}
 
-    .key:hover {
-      transform: scale(1.1);
-    }
+.key:hover {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 0 25px rgba(255,220,120,0.8));
+}
 
-    #paper {
-      display: none;
-      margin: 40px auto;
-      padding: 30px;
-      width: 80%;
-      max-width: 600px;
-      background: url('paper.png') center/cover no-repeat, #f4e3b2;
-      color: black;
-      border-radius: 10px;
-      box-shadow: 0 0 30px rgba(255, 220, 120, 0.4),
-                  0 0 60px rgba(255, 200, 80, 0.2);
-      animation: paperOpen 0.8s ease, glow 2s ease;
-      transform-origin: top center;
-    }
+/* PAPERI */
+#paper {
+    display: none;
+    margin: 50px auto;
+    padding: 35px;
+    width: 85%;
+    max-width: 650px;
+    background: url('paper.png') center/cover no-repeat, #f4e3b2;
+    color: #2b1a10;
+    border-radius: 12px;
 
-    .symbols {
-      font-size: 28px;
-      margin-top: 20px;
-      line-height: 1.8;
-      letter-spacing: 4px;
-    }
+    font-family: 'Special Elite', cursive;
 
-    @keyframes paperOpen {
-      0% {
+    box-shadow: 0 0 40px rgba(255, 200, 100, 0.4);
+
+    animation: openPaper 1s ease;
+    transform-origin: top;
+}
+
+.symbols {
+    font-size: 30px;
+    margin-top: 20px;
+    line-height: 1.9;
+}
+
+/* ANIMAATIO */
+@keyframes openPaper {
+    0% {
         opacity: 0;
-        transform: scaleY(0.2) rotateX(-20deg);
-      }
-      60% {
-        opacity: 1;
-        transform: scaleY(1.05) rotateX(0deg);
-      }
-      100% {
+        transform: scaleY(0.1) rotateX(-30deg);
+    }
+    60% {
+        transform: scaleY(1.05);
+    }
+    100% {
         opacity: 1;
         transform: scaleY(1);
-      }
     }
+}
 
-    @keyframes glow {
-      0% {
-        box-shadow: 0 0 0 rgba(255,200,80,0);
-      }
-      50% {
-        box-shadow: 0 0 40px rgba(255,200,80,0.5);
-      }
-      100% {
-        box-shadow: 0 0 20px rgba(255,200,80,0.2);
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="overlay">
-    <h1>Olet löytänyt piilotetun sivun</h1>
 
-    <p>Jos pääsit tänne asti… olet lähempänä kuin uskot.</p>
+<div class="overlay">
 
-    <p>
-      Mustaparta ei luottanut karttoihin.<br>
-      Hän piilotti totuuden merkkeihin.
-    </p>
+<h1>Olet löytänyt portin</h1>
 
-    <p><i>Klikkaa avainta avataksesi portin</i></p>
+<p><i>Mutta kaikki portit eivät johda oikeaan paikkaan...</i></p>
 
-    <img
-      src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0"
-      width="120"
-      class="key"
-      onclick="openLock()"
-      alt="Avain"
-    >
+<p>Klikkaa avainta avataksesi salaisuuden</p>
 
-    <div id="paper">
-      <h2>MERKIT OVAT NUMEROITA</h2>
+<img src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0"
+     class="key"
+     onclick="openLock()">
 
-      <div class="symbols">
-        🧭 = 3<br>
-        🗝️ = 2<br>
-        ⚙️ = 8<br>
-        🌊 = 5<br>
-        🌙 = 9<br>
-        💧 = 1<br>
-        🗼 = 6<br>
-        ⚡ = 0<br>
-        🔥 = 7<br>
-        ⭐ = 4
-      </div>
+<div id="paper">
 
-      <p style="margin-top: 20px;">
-        Mutta muista…<br>
-        Numerot yksin eivät johda mihinkään.<br>
-        Vain oikea järjestys näyttää tien.
-      </p>
-    </div>
-  </div>
+<h2>MERKIT OVAT NUMEROITA</h2>
 
-  <audio id="clickSound">
-    <source src="click.mp3" type="audio/mpeg">
-  </audio>
+<div class="symbols">
+🧭 = 3<br>
+🗝️ = 2<br>
+⚙️ = 8<br>
+🌊 = 5<br>
+🌙 = 9<br>
+💧 = 1<br>
+🗼 = 6<br>
+⚡ = 0<br>
+🔥 = 7<br>
+⭐ = 4
+</div>
 
-  <audio id="oceanSound" loop>
-    <source src="meri.mp3" type="audio/mpeg">
-  </audio>
+<p style="margin-top:20px;">
+Mutta muista…<br>
+Vain oikea järjestys näyttää tien.
+</p>
 
-  <script>
-    function openLock() {
-      document.getElementById("paper").style.display = "block";
+</div>
 
-      const clickSound = document.getElementById("clickSound");
-      const oceanSound = document.getElementById("oceanSound");
+</div>
 
-      if (clickSound) {
-        clickSound.play().catch(() => {});
-      }
+<audio id="clickSound">
+<source src="click.mp3" type="audio/mpeg">
+</audio>
 
-      if (oceanSound) {
-        oceanSound.volume = 0.3;
-        oceanSound.play().catch(() => {});
-      }
-    }
-  </script>
+<audio id="oceanSound" loop>
+<source src="meri.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openLock() {
+    document.getElementById("paper").style.display = "block";
+
+    let click = document.getElementById("clickSound");
+    let ocean = document.getElementById("oceanSound");
+
+    click.play().catch(()=>{});
+    ocean.volume = 0.3;
+    ocean.play().catch(()=>{});
+}
+</script>
+
 </body>
 </html>
