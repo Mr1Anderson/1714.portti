@@ -51,7 +51,7 @@ h1 {
     padding: 35px;
     width: 85%;
     max-width: 650px;
-    background: url('paper.png') center/cover no-repeat, #f4e3b2;
+    background: url('https://i.postimg.cc/wjw3pmPk/file-00000000ef8871f48c3d26e8733a3413.png') center/cover no-repeat, #f4e3b2;
     color: #2b1a10;
     border-radius: 12px;
 
