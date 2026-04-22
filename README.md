@@ -115,9 +115,17 @@
   </div>
 
   <script>
-    function openLock() {
-      document.getElementById("paper").style.display = "block";
-    }
-  </script>
+function openLock() {
+    // Näytä paperi
+    document.getElementById("paper").style.display = "block";
+
+    // 🔊 klikkausääni
+    document.getElementById("clickSound").play();
+
+    // 🌊 meren ääni päälle
+    document.getElementById("oceanSound").volume = 0.3;
+    document.getElementById("oceanSound").play();
+}
+</script>
 </body>
 </html>
