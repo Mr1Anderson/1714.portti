@@ -93,17 +93,17 @@
       <h2>MERKIT OVAT NUMEROITA</h2>
 
       <div class="symbols">
-        🧭 3 &nbsp;&nbsp;
-        🗝️ 2 &nbsp;&nbsp;
-        ⚙️ 8 &nbsp;&nbsp;
-        🌊 5 &nbsp;&nbsp;
-        🌙 9 &nbsp;&nbsp;
-        💧 1 &nbsp;&nbsp;
-        🗼 6 &nbsp;&nbsp;
-        ⚡ 0 &nbsp;&nbsp;
-        🔥 7 &nbsp;&nbsp;
-        ⭐ 4
-      </div>
+  🧭 = 3<br>
+  🗝️ = 2<br>
+  ⚙️ = 8<br>
+  🌊 = 5<br>
+  🌙 = 9<br>
+  💧 = 1<br>
+  🗼 = 6<br>
+  ⚡ = 0<br>
+  🔥 = 7<br>
+  ⭐ = 4
+</div>
 
       <p style="margin-top: 20px;">
         Mutta muista…<br>
