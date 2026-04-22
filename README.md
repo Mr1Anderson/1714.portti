@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fi">
 <head>
 <meta charset="UTF-8">
@@ -97,7 +97,7 @@ h1 {
 
 <p>Klikkaa avainta avataksesi salaisuuden</p>
 
-<img src="https://github.com/user-attachments/assets/2c078721-2851-4c9d-83b7-cef8f87070d0"
+<img src="https://postimg.cc/crfBjcx5"
      class="key"
      onclick="openLock()">
 
