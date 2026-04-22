@@ -43,15 +43,16 @@
     }
 
     #paper {
-      display: none;
-      margin: 40px auto;
-      padding: 30px;
-      width: 80%;
-      max-width: 600px;
-      background: url('paper.png') center/cover no-repeat;
-      color: black;
-      border-radius: 10px;
-      animation: fadeIn 1.5s ease;
+    display: none;
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    background: url('paper.png') center/cover no-repeat, #f4e3b2;
+    color: black;
+    border-radius: 10px;
+    animation: fadeIn 1.5s ease;
+
     }
 
     .symbols {
